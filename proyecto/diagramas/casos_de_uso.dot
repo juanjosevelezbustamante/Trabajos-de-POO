@@ -1,0 +1,27 @@
+digraph CasosDeUso {
+    rankdir=LR;
+    fontname="Helvetica";
+    node [fontname="Helvetica", fontsize=11];
+
+    Usuario [shape=plaintext, label="Usuario", labelloc=b];
+
+    subgraph cluster_sistema {
+        label="Sistema de Gestión de Contactos (CRUD con archivo)";
+        style=rounded;
+        fontsize=12;
+
+        CrearContacto [shape=ellipse, label="Crear\ncontacto"];
+        ListarContactos [shape=ellipse, label="Listar / Leer\ncontactos"];
+        ActualizarContacto [shape=ellipse, label="Actualizar\ncontacto"];
+        EliminarContacto [shape=ellipse, label="Eliminar\ncontacto"];
+        ValidarDatos [shape=ellipse, label="Validar\ndatos"];
+    }
+
+    Usuario -> CrearContacto;
+    Usuario -> ListarContactos;
+    Usuario -> ActualizarContacto;
+    Usuario -> EliminarContacto;
+
+    CrearContacto -> ValidarDatos [style=dashed, label="<<include>>"];
+    ActualizarContacto -> ValidarDatos [style=dashed, label="<<include>>"];
+}

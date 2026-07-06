@@ -1,0 +1,15 @@
+digraph DiagramaClases {
+    rankdir=TB;
+    node [shape=record, fontname="Helvetica", fontsize=11];
+    edge [fontname="Helvetica", fontsize=10];
+
+    Contacto [label="{Contacto|- _id : int\l- _nombre : str\l- _telefono : str\l- _email : str\l|+ id() : int\l+ nombre() : str\l+ telefono() : str\l+ email() : str\l+ actualizar(nombre, telefono, email)\l+ to_linea() : str\l+ from_linea(linea) : Contacto\l}"];
+
+    RepositorioContactos [label="{RepositorioContactos|- _ruta_archivo : str|+ crear(nombre, telefono, email) : Contacto\l+ leer_todos() : list~Contacto~\l+ buscar_por_id(id) : Contacto\l+ actualizar(id, nombre, telefono, email) : bool\l+ eliminar(id) : bool\l- _guardar_todos(contactos)\l}"];
+
+    VentanaPrincipal [label="{VentanaPrincipal (Tk)|- repositorio : RepositorioContactos\l- id_seleccionado : int\l|+ _crear()\l+ _cargar_tabla()\l+ _actualizar()\l+ _eliminar()\l+ _al_seleccionar_fila()\l+ _validar()\l}"];
+
+    VentanaPrincipal -> RepositorioContactos [arrowhead=vee, label="usa"];
+    RepositorioContactos -> Contacto [arrowhead=vee, label="crea / gestiona"];
+    RepositorioContactos -> Contacto [style=dashed, arrowhead=vee, label="persiste en archivo .txt", constraint=false];
+}
