@@ -44,17 +44,5 @@ python app.py
 - **VentanaPrincipal**: interfaz gráfica (Tkinter) que solo se comunica
   con el repositorio, nunca con el archivo directamente.
 
-## Publicar en GitHub
 
-```bash
-cd proyecto
-git init
-git add .
-git commit -m "Actividad 5: CRUD con archivo e interfaz gráfica"
-git branch -M main
-git remote add origin https://github.com/TU-USUARIO/TU-REPOSITORIO.git
-git push -u origin main
-```
 
-Reemplaza `TU-USUARIO/TU-REPOSITORIO` por los datos de tu propio
-repositorio y agrega ese enlace en el documento entregable.
